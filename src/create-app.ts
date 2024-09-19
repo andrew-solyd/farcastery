@@ -1,7 +1,6 @@
 import {
   ID_GATEWAY_ADDRESS,
   ID_REGISTRY_ADDRESS,
-  ViemLocalEip712Signer,
   idGatewayABI,
   idRegistryABI,
 } from '@farcaster/hub-nodejs';
@@ -29,7 +28,6 @@ const walletClient = createWalletClient({
 });
 
 const app = privateKeyToAccount(APP_PRIVATE_KEY as `0x${string}`);
-const appAccountKey = new ViemLocalEip712Signer(app);
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -108,5 +106,3 @@ async function registerFarcasterApp() {
 }
 
 export default registerFarcasterApp;
-
-registerFarcasterApp();
