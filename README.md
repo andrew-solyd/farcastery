@@ -18,7 +18,7 @@ Farcaster Frackery is a collection of TypeScript functions to interact with the 
 
 2. Install dependencies:
     ```sh
-    npm install
+    pnpm install
     ```
 
 3. Create a `.env` file in the root directory and add the required environment variables (see [Environment Variables](#environment-variables)).
