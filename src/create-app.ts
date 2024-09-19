@@ -9,6 +9,11 @@ import { createPublicClient, createWalletClient, http, formatEther } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts';
 import { optimism } from 'viem/chains';
 import readline from 'readline';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
 
 const APP_PRIVATE_KEY = process.env.APP_PRIVATE_KEY; 
 const WARPCAST_RECOVERY_PROXY = '0x00000000FcB080a4D6c39a9354dA9EB9bC104cd7';

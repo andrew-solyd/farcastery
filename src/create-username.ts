@@ -4,7 +4,9 @@ import { bytesToHex } from "viem";
 import axios from 'axios';
 import dotenv from 'dotenv';
 
+// Load environment variables
 dotenv.config();
+
 
 const USER_PRIVATE_KEY = process.env.USER_PRIVATE_KEY!;
 const USER_FARCASTER_NAME = process.env.USER_FARCASTER_NAME!;

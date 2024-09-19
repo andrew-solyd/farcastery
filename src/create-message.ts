@@ -5,7 +5,10 @@ import {
   NobleEd25519Signer
 } from "@farcaster/hub-nodejs";
 import dotenv from 'dotenv';
+
+// Load environment variables
 dotenv.config();
+
 
 const SIGNER = process.env.USER_FARCASTER_PRIVATE_KEY;
 const FID = parseInt(process.env.USER_FARCASTER_FID!);
