@@ -1,4 +1,5 @@
 import inquirer from 'inquirer';
+import createWallet from './create-wallet';
 import registerFarcasterApp from './create-app';
 import registerUser from './create-account';
 import registerUserName from './create-username';
@@ -7,6 +8,7 @@ import createMessage from './create-message';
 
 async function mainMenu() {
   const choices = [
+		{ name: 'Create Optimism Wallet', value: 'createWallet' },
     { name: 'Register Farcaster App', value: 'registerFarcasterApp' },
     { name: 'Register User', value: 'registerUser' },
     { name: 'Register Username', value: 'registerUserName' },
@@ -25,6 +27,10 @@ async function mainMenu() {
 
   try {
     switch (action) {
+			case 'createWallet':
+        createWallet();
+        console.log('Optimism wallet created successfully');
+        break;
       case 'registerFarcasterApp':
         await registerFarcasterApp();
         console.log('Farcaster App registered successfully');
@@ -38,16 +44,25 @@ async function mainMenu() {
         console.log('Username registered successfully');
         break;
       case 'updateProfile':
+        const profileData = await inquirer.prompt([
+          { type: 'input', name: 'displayName', message: 'Enter display name:' },
+          { type: 'input', name: 'bio', message: 'Enter bio:' },
+          { type: 'input', name: 'pfpUrl', message: 'Enter profile picture URL:' },
+          { type: 'input', name: 'username', message: 'Enter username:' },
+        ]);
         await updateProfile(
-          "Andrew Yakovlev",
-          "Growth at BlockApps",
-          "https://cdn.prod.website-files.com/62bdc93e9cccfb43e155104c/66c9c1099e822b4c12713a91_Killua%20pfp%20400x400%20(7).png",
-          "ayakovlev"
+          profileData.displayName,
+          profileData.bio,
+          profileData.pfpUrl,
+          profileData.username
         );
         console.log('Profile updated successfully');
         break;
       case 'createMessage':
-        await createMessage("Bing bong!");
+        const { message } = await inquirer.prompt([
+          { type: 'input', name: 'message', message: 'Enter your message:' },
+        ]);
+        await createMessage(message);
         console.log('Message created successfully');
         break;
       default:
