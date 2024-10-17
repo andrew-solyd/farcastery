@@ -33,9 +33,15 @@ Farcaster Frackery is a collection of TypeScript functions to interact with the 
 Create a `.env` file in the root directory and add the following environment variables as needed:
 
 APP_PRIVATE_KEY=your_app_private_key
+
 APP_FID=your_app_fid
+
 USER_PRIVATE_KEY=your_user_private_key
+
 USER_FARCASTER_PRIVATE_KEY=your_user_farcaster_private_key
+
 USER_FARCASTER_FID=your_user_farcaster_fid
+
 USER_FARCASTER_NAME=your_user_farcaster_name
+
 HUBBLE_NODE=your_hubble_node_url
